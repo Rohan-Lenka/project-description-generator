@@ -1,6 +1,8 @@
+import Description from "./Description";
+
 const Display = ( {description, setDescription} ) => {
-    return <div id="description-display" className="bg-white w-[800px] h-[300px]">
-        {description}
+    return <div id="description-display" className="text-white bg-gray-600 w-[800px] p-[18px] overflow-y-auto rounded-xl">
+       <Description description={description}/>
     </div>
 }
 

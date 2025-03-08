@@ -7,7 +7,7 @@ import SubmitButton from "./form-components/SubmitButton";
 
 const Form = ( {setDescription} ) => {
   return (
-    <div className="bg-gray-700 p-[10px]">
+    <div className="bg-gray-700 p-[10px] rounded-xl">
       <form action="">
         <DetailsText />
         <LanguagesText />
