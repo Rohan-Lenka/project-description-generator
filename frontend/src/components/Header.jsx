@@ -1,7 +1,7 @@
 
 const Header = () => {
     return (
-        <div className="w-full h-[300px] mt-[60px] flex justify-center">
+        <div className="w-full h-[300px] mt-[200px] flex justify-center">
             <div className="w-[800px] flex flex-col items-center gap-6 text-white">
             <div className="text-6xl text-center font-bold tracking-wide">
                 Project Description Generator 
