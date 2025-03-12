@@ -25,7 +25,7 @@ async function getDescription(prompt) {
   return result.choices[0].message.content;
 }
 
-app.post("/get-description", async (req, res) => {
+app.post("/description", async (req, res) => {
   const { details, languages, type, platform } = req.body;
   const prompt = getPrompt(details, languages, type, platform);
   const response = await getDescription(prompt);
