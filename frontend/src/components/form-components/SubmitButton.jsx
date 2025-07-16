@@ -1,10 +1,11 @@
 import axios from "axios";
+import { BACKEND_URL } from "../../config"
 
 const SubmitButton = ({ details, languages, type, platform, setDescription }) => {
   async function generateDescription(e) {
     e.preventDefault();
     if(!details || !languages || !type || !platform) { alert("Please fill all the inputs"); return; }
-    const response = await axios.post("http://localhost:3001/description", {
+    const response = await axios.post(`${BACKEND_URL}/description`, {
       details,
       languages,
       type,

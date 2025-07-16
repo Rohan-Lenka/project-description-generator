@@ -31,7 +31,7 @@ app.post("/description", async (req, res) => {
   const response = await getDescription(prompt);
   const description = JSON.parse(response);
   console.log(response);
-  res.json({
+  return res.json({
     description,
   });
 });
