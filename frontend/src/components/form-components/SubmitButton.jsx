@@ -8,6 +8,7 @@ const SubmitButton = ({
   type,
   platform,
   setDescription,
+  setLoading
 }) => {
   async function generateDescription(e) {
     e.preventDefault();
@@ -16,15 +17,17 @@ const SubmitButton = ({
       return;
     }
     // const response = await axios.post(`${BACKEND_URL}/description`, {
-    //   details,
-    //   languages,
-    //   type,
-    //   platform
-    // });
+      //   details,
+      //   languages,
+      //   type,
+      //   platform
+      // });
+    setLoading((loading) => loading = true);
     const prompt = getPrompt(details, languages, type, platform);
     puter.ai
       .chat(prompt, { model: "gpt-4.1-nano" })
       .then((response) => {
+        setLoading((loading) => loading = false);
         setDescription((description) => description = JSON.parse(response.message.content));
       });
   }

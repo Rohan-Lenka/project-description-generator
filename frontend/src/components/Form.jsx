@@ -6,7 +6,7 @@ import NewButton from "./form-components/NewButton";
 import PlatformRadio from "./form-components/PlatformRadio";
 import SubmitButton from "./form-components/SubmitButton";
 
-const Form = ({ setDescription }) => {
+const Form = ({ setDescription, setLoading }) => {
   const [details, setDetails] = useState("");
   const [languages, setLanguages] = useState("");
   const [type, setType] = useState("");
@@ -25,6 +25,7 @@ const Form = ({ setDescription }) => {
             languages={languages}
             type={type}
             platform={platform}
+            setLoading={setLoading}
           />
           <NewButton />
         </div>
