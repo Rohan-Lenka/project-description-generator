@@ -1,17 +1,32 @@
 import axios from "axios";
-import { BACKEND_URL } from "../../config"
+import { BACKEND_URL } from "../../config";
+import getPrompt from "../../utils/getPrompt";
 
-const SubmitButton = ({ details, languages, type, platform, setDescription }) => {
+const SubmitButton = ({
+  details,
+  languages,
+  type,
+  platform,
+  setDescription,
+}) => {
   async function generateDescription(e) {
     e.preventDefault();
-    if(!details || !languages || !type || !platform) { alert("Please fill all the inputs"); return; }
-    const response = await axios.post(`${BACKEND_URL}/description`, {
-      details,
-      languages,
-      type,
-      platform
-    });
-    setDescription((description) => description = response.data.description);
+    if (!details || !languages || !type || !platform) {
+      alert("Please fill all the inputs");
+      return;
+    }
+    // const response = await axios.post(`${BACKEND_URL}/description`, {
+    //   details,
+    //   languages,
+    //   type,
+    //   platform
+    // });
+    const prompt = getPrompt(details, languages, type, platform);
+    puter.ai
+      .chat(prompt, { model: "gpt-4.1-nano" })
+      .then((response) => {
+        setDescription((description) => description = JSON.parse(response.message.content));
+      });
   }
 
   return (
